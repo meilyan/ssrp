@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSRP GTA SAMP Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="editor">
+            <div id="imageContainer">
+                <img id="uploadedImage" alt="Uploaded Image">
+                <div id="topText" class="text-overlay"></div>
+                <div id="bottomText" class="text-overlay"></div>
+                <div class="controls">
+                    <button class="control-btn" id="zoomIn">+</button>
+                    <button class="control-btn" id="zoomOut">-</button>
+                    <button class="control-btn" id="moveUp">↑</button>
+                    <button class="control-btn" id="moveLeft">←</button>
+                    <button class="control-btn" id="moveDown">↓</button>
+                    <button class="control-btn" id="moveRight">→</button>
+                    <button class="control-btn" id="resetPosition">⟲</button>
+                </div>
+            </div>
+            <div class="text-controls">
+                <div class="font-size-control">
+                    <label for="fontSize">Ukuran Font:</label>
+                    <input type="range" id="fontSize" min="8" max="24" value="12" step="1">
+                    <span id="fontSizeValue">12px</span>
+                </div>
+                <div class="shadow-control">
+                    <label for="textShadow">Bayangan Teks:</label>
+                    <input type="checkbox" id="textShadow">
+                </div>
+            </div>
+            <textarea id="topTextInput" class="text-input" rows="3" placeholder="Masukkan teks atas (maks. 6 baris)"></textarea>
+            <textarea id="bottomTextInput" class="text-input" rows="3" placeholder="Masukkan teks bawah (maks. 6 baris)"></textarea>
+            <input type="file" id="imageUpload" accept="image/*">
+            <label for="imageUpload" class="btn">Pilih Gambar</label>
+            <button id="saveImage" class="btn">Simpan Gambar</button>
+        </div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
