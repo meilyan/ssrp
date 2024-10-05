@@ -62,20 +62,17 @@ const imageUpload = document.getElementById('imageUpload');
     topTextInput.addEventListener('input', () => updateTextOverlay(topTextInput, topTextOverlay));
     bottomTextInput.addEventListener('input', () => updateTextOverlay(bottomTextInput, bottomTextOverlay));
 
-    // Font size control
     fontSizeSlider.addEventListener('input', function() {
         fontSizeValue.textContent = `${this.value}px`;
         updateTextOverlay(topTextInput, topTextOverlay);
         updateTextOverlay(bottomTextInput, bottomTextOverlay);
     });
 
-    // Text shadow control
     textShadowCheckbox.addEventListener('change', function() {
         updateTextOverlay(topTextInput, topTextOverlay);
         updateTextOverlay(bottomTextInput, bottomTextOverlay);
     });
 
-    // Control buttons
     document.getElementById('zoomIn').addEventListener('click', () => {
         currentScale = Math.min(3, currentScale + 0.1);
         updateImageTransform();
@@ -108,15 +105,12 @@ const imageUpload = document.getElementById('imageUpload');
 
     document.getElementById('resetPosition').addEventListener('click', resetImagePosition);
 
-    // Save image functionality
     saveImageBtn.addEventListener('click', function() {
-        // Hide controls before taking the screenshot
         controls.style.display = 'none';
 
         html2canvas(imageContainer, {
-        scale: 1    // Maintain scale for clarit
+        scale: 1
         }).then(canvas => {
-            // Show controls after the screenshot
             controls.style.display = 'grid';
 
             const link = document.createElement('a');
