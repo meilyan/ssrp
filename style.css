@@ -42,6 +42,20 @@ body, html {
     overflow: hidden;
 }
 
+#imageContainer::after {
+    content: '';
+    position: absolute;
+    right: 10px; 
+    bottom: 10px; 
+    background-image: url('icao.png'); 
+    background-size: 150px; 
+    background-repeat: no-repeat; 
+    opacity: 0.1;
+    width: 150px; 
+    height: 150px; 
+    pointer-events: none;
+}
+
 #uploadedImage {
     position: absolute;
     top: 0;
