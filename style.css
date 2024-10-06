@@ -89,7 +89,6 @@ body, html {
     font-family: Arial, sans-serif;
     font-weight: 700;
     color: #fff;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .text-overlay p.special {
