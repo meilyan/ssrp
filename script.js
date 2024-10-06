@@ -51,9 +51,9 @@ const imageUpload = document.getElementById('imageUpload');
             }
             p.style.fontSize = `${fontSizeSlider.value}px`;
             if (textShadowCheckbox.checked) {
-                p.style.textShadow = '2px 4px 3px rgba(0,0,0,1)';
+                p.style.textShadow = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
             } else {
-                p.style.textShadow = 'none';
+                p.style.textShadow = '2px 4px 3px rgba(0,0,0,1)';
             }
             overlay.appendChild(p);
         });
