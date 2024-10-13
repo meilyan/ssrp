@@ -8,6 +8,15 @@
 </head>
 <body>
     <div class="container">
+        <div class="controls-container">
+            <div class="image-controls">
+                
+                <button id="addNew" class="btn">Baru</button>
+                <input type="file" id="imageUpload" accept="image/*">
+                <label for="imageUpload" class="btn">Gambar</label>
+                <button id="saveImage" class="btn">Simpan</button>
+            </div>
+        </div>
         <div class="editor">
             <div id="imageContainer">
                 <img id="uploadedImage" alt="Uploaded Image">
@@ -36,9 +45,17 @@
             </div>
             <textarea id="topTextInput" class="text-input" rows="3" placeholder="kalau mau '*' kasih spasi"></textarea>
             <textarea id="bottomTextInput" class="text-input" rows="3" placeholder="Masukkan teks bawah (maks. 6 baris)"></textarea>
-            <input type="file" id="imageUpload" accept="image/*">
-            <label for="imageUpload" class="btn">Pilih Gambar</label>
-            <button id="saveImage" class="btn">Simpan Gambar</button>
+            <div class="image-controls">
+                <div class="draft-controls">
+                    <button id="saveDraft" class="btn">Save Draft</button>
+                    <select id="draftList" class="btn">
+                        <option value="" disabled selected>Pilih Draft</option>
+                    </select>
+                    <button id="loadDraft" class="btn">Load Draft</button>
+                    <button id="clearDraft" class="btn">Clear Draft</button>
+                </div>        
+            </div>  
+            
         </div>
     </div>
 
