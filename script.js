@@ -109,14 +109,48 @@ const imageUpload = document.getElementById('imageUpload');
         controls.style.display = 'none';
     
         html2canvas(imageContainer, {
-            scale: 4,
+            scale: 3, 
             useCORS: true
         }).then(canvas => {
             controls.style.display = 'grid';
     
-            const link = document.createElement('a');
-            link.download = 'ssrp-gta-samp-image.png';
-            link.href = canvas.toDataURL('image/png', 1.0);
-            link.click();
+            const resizedCanvas = document.createElement('canvas');
+            const ctx = resizedCanvas.getContext('2d');
+
+            resizedCanvas.width = 800;
+            resizedCanvas.height = 600;
+
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            const steps = 3;
+            let stepCanvas = canvas;
+    
+            for (let i = 0; i < steps; i++) {
+                const stepWidth = canvas.width * Math.pow(0.8, i + 1);
+                const stepHeight = canvas.height * Math.pow(0.8, i + 1);
+    
+                const tempCanvas = document.createElement('canvas');
+                tempCanvas.width = stepWidth;
+                tempCanvas.height = stepHeight;
+                const tempCtx = tempCanvas.getContext('2d');
+    
+                tempCtx.imageSmoothingEnabled = true;
+                tempCtx.imageSmoothingQuality = 'high';
+                tempCtx.drawImage(stepCanvas, 0, 0, stepWidth, stepHeight);
+    
+                stepCanvas = tempCanvas;
+            }
+
+            ctx.drawImage(stepCanvas, 0, 0, resizedCanvas.width, resizedCanvas.height);
+
+            resizedCanvas.toBlob(function(blob) {
+                const link = document.createElement('a');
+                link.download = 'ICAO-SSRP.png';
+                link.href = URL.createObjectURL(blob);
+                link.click();
+            }, 'image/png');
         });
     });
+    
+    
