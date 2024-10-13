@@ -107,15 +107,16 @@ const imageUpload = document.getElementById('imageUpload');
 
     saveImageBtn.addEventListener('click', function() {
         controls.style.display = 'none';
-
+    
         html2canvas(imageContainer, {
-        scale: 1
+            scale: 4,
+            useCORS: true
         }).then(canvas => {
             controls.style.display = 'grid';
-
+    
             const link = document.createElement('a');
             link.download = 'ssrp-gta-samp-image.png';
-            link.href = canvas.toDataURL();
+            link.href = canvas.toDataURL('image/png', 1.0);
             link.click();
         });
     });
